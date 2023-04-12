@@ -1,7 +1,8 @@
+import socket
 
 # Створення сервера
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_socket.bind(('localhost', 5555))
+server_socket.bind(('localhost', 5000))
 server_socket.listen(1)
 
 # Очікування підключення клієнта та приймання повідомлень від нього

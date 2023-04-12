@@ -1,8 +1,8 @@
-
+import socket
 
 # Створення клієнта та підключення до сервера
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client_socket.connect(('localhost', 5555))
+client_socket.connect(('localhost', 5010))
 
 # Відправлення повідомлень від клієнта до сервера та приймання повідомлень від сервера
 while True:
