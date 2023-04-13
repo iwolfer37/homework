@@ -8,16 +8,12 @@ messages = []
 @app.route('/send_message', methods=['POST'])
 def send_message():
     message = request.get_json().get('message')
-    if message.lower() == 'привіт':
-        response = 'Привіт! Як справи?'
-    elif message.lower() == 'як тебе звати?':
-        response = 'Доброго вечору, я з України, я python-бот. А як тебе?'
-    elif 'Україна' in message.lower():
-        response = 'Слава Україні! Героям Слава!'
-    elif 'Україна' in message.lower():
-            response = 'Слава Україні! Героям Слава!'
+    if message.lower() == 'Слава нації':
+        response = 'Смерть ворогам'
+    elif 'нації' in message.lower():
+        response = 'Смерть ворогам'
     else:
-        response = 'Слава Україні!'
+        response = 'Героям Слава!!'
     messages.append({'user': message, 'bot': response})
     return jsonify({'status': 'OK', 'response': response})
 
