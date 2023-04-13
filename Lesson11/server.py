@@ -1,15 +1,18 @@
-import socket
+from flask import Flask, request, jsonify
 
-# Створення клієнта та підключення до сервера
-client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client_socket.connect(('localhost', 5010))
+app = Flask(__name__)
 
-# Відправлення повідомлень від клієнта до сервера та приймання повідомлень від сервера
-while True:
-    message = input()
-    client_socket.sendall(message.encode('utf-8'))
-    data = client_socket.recv(1024)
-    print(data.decode('utf-8'))
+messages = []
 
-# Закриття з'єднання з клієнтом та сервером
-client_socket.close()
+@app.route('/send_message', methods=['POST'])
+def send_message():
+    message = request.get_json().get('message')
+    messages.append(message)
+    return jsonify({'status': 'OK'})
+
+@app.route('/get_messages', methods=['GET'])
+def get_messages():
+    return jsonify({'messages': messages})
+
+if __name__ == '__main__':
+    app.run(debug=True)
