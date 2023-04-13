@@ -1,3 +1,4 @@
+#сервер
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
@@ -10,11 +11,13 @@ def send_message():
     if message.lower() == 'привіт':
         response = 'Привіт! Як справи?'
     elif message.lower() == 'як тебе звати?':
-        response = 'Мене звати Чат-бот. А як тебе?'
-    elif 'погода' in message.lower():
-        response = 'Зараз сонячно і тепло!'
+        response = 'Доброго вечору, я з України, я python-бот. А як тебе?'
+    elif 'Україна' in message.lower():
+        response = 'Слава Україні! Героям Слава!'
+    elif 'Україна' in message.lower():
+            response = 'Слава Україні! Героям Слава!'
     else:
-        response = 'Дякую за повідомлення!'
+        response = 'Слава Україні!'
     messages.append({'user': message, 'bot': response})
     return jsonify({'status': 'OK', 'response': response})
 
