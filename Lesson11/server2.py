@@ -1,4 +1,4 @@
-#сервер через сокет
+#сервер через сокет.
 import socket
 
 HOST = 'localhost'
