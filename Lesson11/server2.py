@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonfly
+from flask import Flask, request
 
 app = Flask(__name__)
 
@@ -10,4 +10,5 @@ def word_count():
     return {'word_count': word_count}
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=8080)
+
