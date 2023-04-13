@@ -1,12 +1,16 @@
-import requests
+import socket
 
-url = 'http://127.0.0.1:8080/wordcount'
-data = {'text': 'це тестовий текст для підрахунку слів'}
+HOST = 'localhost'
+PORT = 8000
 
-response = requests.post(url, data=data)
+def send_message(message):
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.connect((HOST, PORT))
+        s.sendall(message.encode('utf-8'))
+        data = s.recv(1024)
+        return data.decode('utf-8')
 
-if response.ok:
-    wordcount = response.json().get('wordcount')
-    print(f'Кількість слів: {wordcount}')
-else:
-    print('Помилка запиту')
+if __name__ == '__main__':
+    message = 'Слава Україні, Героям Слава!'
+    response = send_message(message)
+    print(f'Response: {response}')
