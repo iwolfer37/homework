@@ -1,3 +1,4 @@
+#клієнт 2
 import socket
 
 HOST = 'localhost'

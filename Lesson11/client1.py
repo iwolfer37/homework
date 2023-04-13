@@ -1,3 +1,4 @@
+#Клієнт для завдання 1
 import requests
 import time
 

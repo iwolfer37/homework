@@ -1,4 +1,4 @@
-#сервер
+#сервер для завдання 1/2
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
