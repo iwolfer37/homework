@@ -6,10 +6,19 @@ app = Flask(__name__)
 messages = []
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-handler = logging.StreamHandler()
 formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
-logger.addHandler(handler)
+
+# Create a file handler and add it to the logger
+file_handler = logging.FileHandler('server.log')
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
+
+# Create a console handler and add it to the logger
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+console_handler.setFormatter(formatter)
+logger.addHandler(console_handler)
 
 @app.route('/send_message', methods=['POST'])
 def send_message():
@@ -18,10 +27,10 @@ def send_message():
         response = 'Героям слава'
     elif message.lower() == 'слава нації':
         response = 'Смерть ворогам'
-    elif message.lower() == 'україна':
+    elif message.lower() == 'ukraine':
         response = 'Понад усе!'
     else:
-        response = 'Не розумію, що ви маєте на увазі'
+        response = 'Ви Українець? Пароль?'
     messages.append({'user': message, 'bot': response})
     logger.info('User sent message: %s', message)
     logger.info('Bot responded with: %s', response)
