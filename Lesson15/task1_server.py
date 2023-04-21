@@ -8,13 +8,11 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 
-# Create a file handler and add it to the logger
+# Створюємо файл логів
 file_handler = logging.FileHandler('server.log')
 file_handler.setLevel(logging.INFO)
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
-
-# Create a console handler and add it to the logger
 console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.INFO)
 console_handler.setFormatter(formatter)
@@ -27,7 +25,7 @@ def send_message():
         response = 'Героям слава'
     elif message.lower() == 'слава нації':
         response = 'Смерть ворогам'
-    elif message.lower() == 'ukraine':
+    elif message.lower() == 'Україна':
         response = 'Понад усе!'
     else:
         response = 'Ви Українець? Пароль?'
