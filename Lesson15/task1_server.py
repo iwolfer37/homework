@@ -14,12 +14,12 @@ logger.addHandler(handler)
 @app.route('/send_message', methods=['POST'])
 def send_message():
     message = request.get_json().get('message')
-    if message.lower() == 'Слава нації':
-        response = 'Смерть ворогам'
-    elif 'нації' in message.lower():
-        response = 'Смерть ворогам'
+    if message.lower() == 'Героям слава':
+        response = 'Слава нації'
+    elif 'ворогам' in message.lower():
+        response = 'Україна'
     else:
-        response = 'Героям Слава!!'
+        response = 'Слава Україні!!'
     messages.append({'user': message, 'bot': response})
     logger.info('User sent message: %s', message)
     logger.info('Bot responded with: %s', response)
