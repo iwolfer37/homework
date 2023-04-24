@@ -22,7 +22,7 @@ logger.addHandler(console_handler)
 @app.route('/send_message', methods=['POST'])
 def send_message():
     message = request.get_json().get('message')
-    if message.lower() == 'Слава Україні':
+    if message.lower() == 'слава україні':
         response = 'Героям слава'
     elif message.lower() == 'слава нації':
         response = 'Смерть ворогам'
