@@ -1,3 +1,4 @@
+#Сервер (який пише логи в створеному файлі) завдання 1
 import logging
 from flask import Flask, request, jsonify
 
@@ -21,7 +22,7 @@ logger.addHandler(console_handler)
 @app.route('/send_message', methods=['POST'])
 def send_message():
     message = request.get_json().get('message')
-    if message.lower() == 'слава україні':
+    if message.lower() == 'Слава Україні':
         response = 'Героям слава'
     elif message.lower() == 'слава нації':
         response = 'Смерть ворогам'
