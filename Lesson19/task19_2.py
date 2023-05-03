@@ -18,6 +18,6 @@ def shortest_path(graph, start, end):
     return path, distance
 
 # Приклад виклику функції
-path, distance = shortest_path(G, 'Kyiv', 'Kharkiv')
+path, distance = shortest_path(G, 'Kyiv', 'Rivne')
 print("Найкоротший маршрут:", path)
 print("Протяжність маршруту:", distance)
