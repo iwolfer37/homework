@@ -66,7 +66,7 @@ while True:
     print("2. Авторизація")
     print("3. Вихід")
 
-    choice = input("Виберіть опцію: ")
+    choice = input("Введіть цифру (опцію)  з меню: ")
 
     if choice == "1":
         auth.register()
